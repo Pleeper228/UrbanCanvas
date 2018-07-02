@@ -2,11 +2,16 @@ import React from 'react'
 import { compose, withProps, lifecycle } from "recompose"
 import { withScriptjs } from "react-google-maps"
 import { StandaloneSearchBox } from "react-google-maps/lib/components/places/StandaloneSearchBox"
+import runtimeEnv from '@mars/heroku-js-runtime-env';
+
 // require("dotenv").config()
+
+const env = runtimeEnv();
+
 
 const SearchBox = compose(
   withProps({
-    googleMapURL: process.env.REACT_APP_ADDRESS_SEARCH,
+    googleMapURL: env.REACT_APP_ADDRESS_SEARCH,
     loadingElement: <div style={{ height: `100%` }} />,
     containerElement: <div style={{ height: `400px` }} />,
   }),
@@ -44,7 +49,7 @@ const SearchBox = compose(
     >
       <input
         type="text"
-        placeholder="Please enter the address of the street piece you wish to add."
+        placeholder="Enter address"
         style={{
           boxSizing: `border-box`,
           border: `1px solid transparent`,
