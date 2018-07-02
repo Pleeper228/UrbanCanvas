@@ -1,7 +1,7 @@
 import React, { Component } from "react"
 import Atlas from "./Atlas"
 
-require("dotenv").config()
+// require("dotenv").config()
 
 class Map extends Component {
   render() {
